@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
+use App\Http\Controllers\PostController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -34,3 +35,7 @@ Route::post('/submit-static-form', function (Request $request) {
     Log::debug($request->all());
     return "Form data: {$request->input('name')}  ";
 });
+
+
+
+Route::resource('posts', PostController::class);
